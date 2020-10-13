@@ -1,6 +1,7 @@
 import mongoose from 'mongoose'
 
-const homeworkSchema = mongoose.Schema({
+// cretate new schema for mongodb
+const homeworkSchema = mongoose.Schema({ 
     
     course: {
         type : String,
@@ -22,6 +23,6 @@ const homeworkSchema = mongoose.Schema({
     timestamps: true,
 }
 )
-
+// return Schema
 const Homework = mongoose.model('Homework', homeworkSchema)
 export default Homework
