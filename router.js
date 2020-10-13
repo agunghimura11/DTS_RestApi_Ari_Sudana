@@ -80,3 +80,18 @@ router.put('/homeworks/:id', async (req, res) => {
     }
 })
 
+router.delete('/homeworks/:id', async (req, res)=> {
+    const homework = await Homework.findById(req.params.id)
+
+    if(homework){
+        await homework.remove()
+        res.json({
+            message: 'homework removed'
+        })
+    }else{
+        res.status(404).json({
+            message: 'homework not found'
+        })
+    }
+})
+
