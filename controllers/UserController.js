@@ -39,9 +39,10 @@ userRouter.post('/login', async (req, res) => {
         const{
             username,
             password
-        } = req.body;
+        } = req.body; // get request body
         
-        const currentUser = await new Promise((resolve, reject)=>{
+        //find id
+        const currentUser = await new Promise((resolve, reject)=>{ 
             User.find({"username": username}, function(err, user){
                 if(err) reject(err)
                 resolve(user)
@@ -107,12 +108,12 @@ userRouter.put('/update', async (req,res) => {
         password
     } = req.body;
     
-    var saltRounds = 10
+    var saltRounds = 10 // total hash
 
-    const currentUser = await new Promise((resolve, reject)=>{
+    const currentUser = await new Promise((resolve, reject)=>{ // new promise to do find by id user
         User.findOne({"_id": id}, function(err, user){
-            if(err) reject(err)
-            resolve(user)
+            if(err) reject(err) // if error send reject
+            resolve(user) // if success send resolve
         })
     })
     if(currentUser){

@@ -4,7 +4,7 @@ import mongoose from 'mongoose' //dependency yang digunakan untuk menghubungkan 
 
 import router from './router.js' // import router handler
 
-import userRouter from './controllers/UserController.js'
+import userRouter from './controllers/UserController.js' // call user auth controller
 
 import dotenv from 'dotenv' //dotenv, dependency yang digunakan untuk mengakses environment variable
 dotenv.config() // menjalankan dependency enviroment variable
